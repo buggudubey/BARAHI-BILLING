@@ -19,70 +19,80 @@
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg); color: var(--text); padding: 15px; }
-    .container { max-width: 1050px; margin: 0 auto; }
+    .container { max-width: 1050px; margin: 0 auto; display: none; }
+    
     #authOverlay {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(15, 23, 42, 0.85); display: flex; align-items: center; justify-content: center;
-      z-index: 9999; backdrop-filter: blur(4px);
+      background: #0f172a; display: flex; align-items: center; justify-content: center;
+      z-index: 9999; padding: 15px;
     }
     .auth-card {
-      background: #ffffff; border-radius: 12px; padding: 30px; width: 90%; max-width: 420px;
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2); text-align: center;
+      background: #ffffff; border-radius: 12px; padding: 25px; width: 100%; max-width: 380px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); text-align: center;
     }
-    .auth-card h2 { color: var(--primary); margin-bottom: 8px; }
-    .auth-card p { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
-    .auth-card input { width: 100%; margin-bottom: 15px; padding: 10px; border: 1px solid var(--border); border-radius: 6px; }
+    .auth-card h2 { color: var(--primary); font-size: 20px; margin-bottom: 6px; }
+    .auth-card p { font-size: 13px; color: var(--text-muted); margin-bottom: 16px; }
+    .auth-card input { width: 100%; margin-bottom: 12px; padding: 11px; border: 1px solid var(--border); border-radius: 6px; font-size: 14px; }
+    
     header.app-header {
       background: linear-gradient(135deg, #1e3a8a, #0369a1);
-      color: white; padding: 20px; border-radius: 12px; margin-bottom: 20px;
-      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); display: flex; justify-content: space-between;
-      align-items: center; flex-wrap: wrap; gap: 15px;
+      color: white; padding: 16px; border-radius: 10px; margin-bottom: 15px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;
     }
-    .header-title h1 { font-size: 26px; font-weight: 800; }
-    .header-title p { font-size: 13px; opacity: 0.9; margin-top: 4px; }
-    .header-badge { background: rgba(255,255,255,0.15); padding: 8px 16px; border-radius: 8px; font-size: 13px; border: 1px solid rgba(255,255,255,0.25); text-align: right; }
-    .nav-tabs { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+    .header-title h1 { font-size: 22px; font-weight: 800; }
+    .header-title p { font-size: 12px; opacity: 0.9; margin-top: 3px; }
+    .header-badge { background: rgba(255,255,255,0.15); padding: 6px 12px; border-radius: 6px; font-size: 12px; text-align: right; }
+
+    .nav-tabs { display: flex; gap: 8px; margin-bottom: 15px; flex-wrap: wrap; }
     .tab-btn {
-      flex: 1; min-width: 140px; padding: 12px; font-size: 14px; font-weight: 600; border: none; border-radius: 8px; cursor: pointer;
-      background: #e2e8f0; color: #334155; transition: all 0.2s ease; text-align: center;
+      flex: 1; min-width: 130px; padding: 10px; font-size: 13px; font-weight: 600; border: none; border-radius: 6px; cursor: pointer;
+      background: #e2e8f0; color: #334155; text-align: center;
     }
     .tab-btn.active { background: var(--primary); color: white; }
-    .card { background: var(--card-bg); border-radius: 10px; border: 1px solid var(--border); padding: 20px; margin-bottom: 20px; }
-    .card-title { font-size: 18px; font-weight: 700; color: #1e293b; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; }
-    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
-    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; }
-    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
-    .form-group { display: flex; flex-direction: column; gap: 5px; }
-    label { font-size: 13px; font-weight: 600; color: #475569; }
-    input, select { padding: 9px 12px; border: 1px solid var(--border); border-radius: 6px; font-size: 14px; outline: none; }
-    .btn { padding: 9px 16px; border-radius: 6px; font-weight: 600; cursor: pointer; border: none; font-size: 13px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
+
+    .card { background: var(--card-bg); border-radius: 8px; border: 1px solid var(--border); padding: 16px; margin-bottom: 15px; }
+    .card-title { font-size: 16px; font-weight: 700; color: #1e293b; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; }
+
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; }
+
+    .form-group { display: flex; flex-direction: column; gap: 4px; }
+    label { font-size: 12px; font-weight: 600; color: #475569; }
+    input, select { padding: 8px 10px; border: 1px solid var(--border); border-radius: 5px; font-size: 13px; outline: none; }
+
+    .btn { padding: 9px 15px; border-radius: 5px; font-weight: 600; cursor: pointer; border: none; font-size: 13px; display: inline-flex; align-items: center; justify-content: center; gap: 5px; }
     .btn-primary { background: var(--primary); color: white; }
     .btn-success { background: var(--success); color: white; }
     .btn-excel { background: #15803d; color: white; }
     .btn-outline { background: white; border: 1px solid var(--border); color: #334155; }
-    .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 15px; }
-    .stat-card { padding: 15px; border-radius: 8px; border-left: 5px solid; background: #f8fafc; }
+
+    .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 12px; }
+    .stat-card { padding: 12px; border-radius: 6px; border-left: 4px solid; background: #f8fafc; }
     .stat-card.blue { border-color: #2563eb; background: #eff6ff; }
     .stat-card.teal { border-color: #0d9488; background: #f0fdfa; }
     .stat-card.red { border-color: #dc2626; background: #fef2f2; }
-    .stat-val { font-size: 22px; font-weight: 800; margin-top: 5px; }
-    table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 13px; }
-    th, td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; }
+    .stat-val { font-size: 20px; font-weight: 800; margin-top: 4px; }
+
+    table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12px; }
+    th, td { border: 1px solid var(--border); padding: 7px 8px; text-align: left; }
     th { background: #f1f5f9; font-weight: 700; color: #334155; }
+
     #invoicePrintView { display: none; }
-    .invoice-box { background: white; border: 2px solid #334155; padding: 25px; border-radius: 8px; max-width: 800px; margin: 20px auto; }
-    .inv-header { display: flex; justify-content: space-between; border-bottom: 2px solid #000; padding-bottom: 12px; }
-    .inv-title { font-size: 24px; font-weight: 900; }
-    .inv-details, .inv-meta { font-size: 12px; line-height: 1.4; }
-    .inv-party-grid { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid #334155; padding: 10px 0; margin-bottom: 10px; font-size: 12px; }
-    .inv-table { width: 100%; border-collapse: collapse; margin: 15px 0; }
-    .inv-table th, .inv-table td { border: 1px solid #000; padding: 6px 8px; font-size: 12px; }
-    .inv-totals { display: flex; justify-content: space-between; margin-top: 10px; font-size: 13px; }
-    .inv-bank-box { border: 1px dashed #64748b; padding: 8px; font-radius: 4px; font-size: 11px; width: 55%; }
-    .inv-calc-box { width: 40%; font-size: 12px; line-height: 1.6; }
-    .inv-calc-row { display: flex; justify-content: space-between; padding: 2px 0; }
-    .inv-grand { font-size: 15px; font-weight: 800; border-top: 2px solid #000; border-bottom: 2px solid #000; padding: 5px 0; }
-    .inv-footer { display: flex; justify-content: space-between; margin-top: 30px; font-size: 11px; }
+    .invoice-box { background: white; border: 2px solid #334155; padding: 20px; border-radius: 6px; max-width: 800px; margin: 15px auto; }
+    .inv-header { display: flex; justify-content: space-between; border-bottom: 2px solid #000; padding-bottom: 10px; }
+    .inv-title { font-size: 22px; font-weight: 900; }
+    .inv-details, .inv-meta { font-size: 11px; line-height: 1.4; }
+    .inv-party-grid { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid #334155; padding: 8px 0; margin-bottom: 8px; font-size: 11px; }
+    .inv-table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+    .inv-table th, .inv-table td { border: 1px solid #000; padding: 5px 6px; font-size: 11px; }
+    .inv-totals { display: flex; justify-content: space-between; margin-top: 8px; font-size: 12px; }
+    .inv-bank-box { border: 1px dashed #64748b; padding: 6px; font-size: 10px; width: 55%; }
+    .inv-calc-box { width: 40%; font-size: 11px; line-height: 1.5; }
+    .inv-calc-row { display: flex; justify-content: space-between; padding: 1px 0; }
+    .inv-grand { font-size: 14px; font-weight: 800; border-top: 2px solid #000; border-bottom: 2px solid #000; padding: 4px 0; }
+    .inv-footer { display: flex; justify-content: space-between; margin-top: 25px; font-size: 10px; }
+
     @media print {
       body * { visibility: hidden !important; }
       #invoicePrintView, #invoicePrintView * { visibility: visible !important; }
@@ -92,56 +102,58 @@
 </head>
 <body>
 
+<!-- LOGIN MODAL -->
 <div id="authOverlay">
   <div class="auth-card">
-    <div style="font-size: 40px; margin-bottom: 10px;">🔐</div>
+    <div style="font-size: 36px; margin-bottom: 8px;">🔐</div>
     <h2>BARAHI ENTERPRISES</h2>
     <p>Apna User ID aur Password daalkar login karein</p>
-    <input type="text" id="loginUser" placeholder="User ID">
-    <input type="password" id="loginPass" placeholder="Password">
-    <button class="btn btn-primary" style="width: 100%; padding: 12px;" onclick="checkLogin()">Login Karein</button>
-    <p style="font-size: 11px; color: #94a3b8; margin-top: 15px;">Default: <b>admin</b> | Pass: <b>1234</b></p>
+    <input type="text" id="loginUser" placeholder="User ID" value="admin">
+    <input type="password" id="loginPass" placeholder="Password" value="1234">
+    <button type="button" class="btn btn-primary" style="width: 100%; padding: 10px;" onclick="checkLogin()">Login Karein</button>
+    <p style="font-size: 11px; color: #64748b; margin-top: 12px;">Default ID: <b>admin</b> | Pass: <b>1234</b></p>
   </div>
 </div>
 
-<div class="container">
+<div class="container" id="mainContainer">
   <header class="app-header">
     <div class="header-title">
       <h1>BARAHI ENTERPRISES</h1>
-      <p>Automotive Batteries, Solar & Inverter Billing Solution</p>
+      <p>Automotive Batteries, Solar & Inverter Billing Portal</p>
     </div>
     <div class="header-badge">
       <strong>GSTIN:</strong> 09HASPS2962A1Z7<br>
-      <strong>State Code:</strong> 09 (Uttar Pradesh)<br>
-      <button onclick="logout()" class="btn btn-outline" style="margin-top: 6px; padding: 2px 6px; font-size: 10px;">🚪 Logout</button>
+      <strong>State Code:</strong> 09 (UP)<br>
+      <button type="button" onclick="logout()" class="btn btn-outline" style="margin-top: 5px; padding: 2px 6px; font-size: 10px;">🚪 Logout</button>
     </div>
   </header>
 
   <div class="nav-tabs">
-    <button class="tab-btn active" onclick="switchTab('billing')">🧾 Naya Bill (Sale)</button>
-    <button class="tab-btn" onclick="switchTab('purchase')">📦 Stock & Purchase (ITC)</button>
-    <button class="tab-btn" onclick="switchTab('gst')">📊 Mahine Ka GST Hisab</button>
-    <button class="tab-btn" onclick="switchTab('cloud')">☁️ Cloud & Backup</button>
+    <button type="button" class="tab-btn active" onclick="switchTab('billing')">🧾 Naya Bill (Sale)</button>
+    <button type="button" class="tab-btn" onclick="switchTab('purchase')">📦 Stock & Purchase (ITC)</button>
+    <button type="button" class="tab-btn" onclick="switchTab('gst')">📊 Mahine Ka GST Hisab</button>
+    <button type="button" class="tab-btn" onclick="switchTab('cloud')">☁️ Cloud & Backup</button>
   </div>
 
+  <!-- TAB 1: BILLING -->
   <div id="tab-billing" class="tab-content">
     <div class="card">
       <div class="card-title">
         <span>Grahak Ka Bill (Tax Invoice)</span>
-        <span style="font-size: 13px; color: var(--text-muted);">Invoice: <b id="dispInvNo">BE-2026-001</b></span>
+        <span style="font-size: 12px; color: var(--text-muted);">Invoice: <b id="dispInvNo">BE-2026-001</b></span>
       </div>
-      <div class="grid-3" style="margin-bottom: 15px;">
+      <div class="grid-3" style="margin-bottom: 12px;">
         <div class="form-group"><label>Customer Name*</label><input type="text" id="custName" placeholder="Ramesh Kumar"></div>
         <div class="form-group"><label>Mobile</label><input type="text" id="custPhone" placeholder="Mobile No"></div>
         <div class="form-group"><label>Address</label><input type="text" id="custAddr" placeholder="Gaon / Shehar"></div>
       </div>
-      <div style="border-top: 1px dashed var(--border); padding-top: 15px;">
+      <div style="border-top: 1px dashed var(--border); padding-top: 12px;">
         <div class="grid-4">
           <div class="form-group" style="grid-column: span 2;"><label>Item Name*</label><input type="text" id="itemName" placeholder="Amaron 150Ah Battery"></div>
           <div class="form-group"><label>HSN</label><input type="text" id="itemHsn" value="85072000"></div>
           <div class="form-group"><label>Qty</label><input type="number" id="itemQty" value="1" oninput="calculateLive()"></div>
         </div>
-        <div class="grid-3" style="margin-top: 12px;">
+        <div class="grid-3" style="margin-top: 10px;">
           <div class="form-group">
             <label>GST Rate</label>
             <select id="itemGstRate" onchange="calculateLive()">
@@ -149,34 +161,35 @@
               <option value="18">18% (Inverter)</option>
             </select>
           </div>
-          <div class="form-group"><label>Selling Price (Total) ₹*</label><input type="number" id="itemFinalAmount" placeholder="12700" oninput="calculateLive()"></div>
+          <div class="form-group"><label>Total Price (GST Samet) ₹*</label><input type="number" id="itemFinalAmount" placeholder="12700" oninput="calculateLive()"></div>
           <div class="form-group"><label>Taxable (Bina Tax)</label><input type="text" id="calcTaxable" readonly style="background:#f1f5f9; font-weight:bold;"></div>
         </div>
-        <div style="background: #f8fafc; border: 1px solid var(--border); padding: 12px; border-radius: 6px; margin-top: 15px; font-size: 13px; display: flex; justify-content: space-around;">
+        <div style="background: #f8fafc; border: 1px solid var(--border); padding: 10px; border-radius: 6px; margin-top: 12px; font-size: 12px; display: flex; justify-content: space-around;">
           <div>CGST: <strong id="liveCgst">₹0.00</strong></div>
           <div>SGST: <strong id="liveSgst">₹0.00</strong></div>
-          <div>Grand Total: <strong id="liveGrand" style="color: var(--success); font-size: 15px;">₹0.00</strong></div>
+          <div>Grand Total: <strong id="liveGrand" style="color: var(--success); font-size: 14px;">₹0.00</strong></div>
         </div>
-        <div style="margin-top: 20px; display: flex; gap: 10px;">
-          <button class="btn btn-success" onclick="generateAndPrintInvoice()">⚡ Bill Banayein & Print Karein</button>
-          <button class="btn btn-outline" onclick="resetSaleForm()">Clear</button>
+        <div style="margin-top: 15px; display: flex; gap: 8px;">
+          <button type="button" class="btn btn-success" onclick="generateAndPrintInvoice()">⚡ Bill Banayein & Print Karein</button>
+          <button type="button" class="btn btn-outline" onclick="resetSaleForm()">Clear</button>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- TAB 2: PURCHASE -->
   <div id="tab-purchase" class="tab-content" style="display:none;">
     <div class="card">
       <div class="card-title">
         <span>Stock Khareed (ITC Entry)</span>
-        <button class="btn btn-excel" onclick="exportPurchasesToCSV()">📥 Purchase CSV Download</button>
+        <button type="button" class="btn btn-excel" onclick="exportPurchasesToCSV()">📥 Purchase CSV Download</button>
       </div>
       <div class="grid-3">
-        <div class="form-group"><label>Company</label><input type="text" id="purSupplier" placeholder="Microtek / Exide"></div>
+        <div class="form-group"><label>Company / Supplier</label><input type="text" id="purSupplier" placeholder="Microtek / Exide"></div>
         <div class="form-group"><label>Invoice No.</label><input type="text" id="purInvNo" placeholder="IN1032004670"></div>
         <div class="form-group"><label>Date</label><input type="date" id="purDate"></div>
       </div>
-      <div class="grid-3" style="margin-top: 12px;">
+      <div class="grid-3" style="margin-top: 10px;">
         <div class="form-group"><label>Taxable Amount ₹</label><input type="number" id="purTaxable" placeholder="35593.20"></div>
         <div class="form-group">
           <label>GST Rate</label>
@@ -186,37 +199,38 @@
           </select>
         </div>
         <div class="form-group" style="justify-content: flex-end;">
-          <button class="btn btn-primary" onclick="savePurchaseRecord()">➕ ITC Add Karein</button>
+          <button type="button" class="btn btn-primary" onclick="savePurchaseRecord()">➕ ITC Add Karein</button>
         </div>
       </div>
-      <table style="margin-top: 20px;">
+      <table style="margin-top: 15px;">
         <thead><tr><th>Date</th><th>Supplier</th><th>Inv #</th><th>Taxable</th><th>Rate</th><th>ITC Tax</th></tr></thead>
         <tbody id="purTableBody"></tbody>
       </table>
     </div>
   </div>
 
+  <!-- TAB 3: GST SUMMARY -->
   <div id="tab-gst" class="tab-content" style="display:none;">
     <div class="card">
       <div class="card-title">
         <span>Mahine Ka Net GST Hisab</span>
-        <button class="btn btn-excel" onclick="exportSalesToCSV()">📥 Sales Excel Download</button>
+        <button type="button" class="btn btn-excel" onclick="exportSalesToCSV()">📥 Sales Excel Download</button>
       </div>
       <div class="summary-grid">
         <div class="stat-card blue">
-          <div style="font-size: 12px; color: #1e40af; font-weight: bold;">TOTAL SALE TAX</div>
+          <div style="font-size: 11px; color: #1e40af; font-weight: bold;">TOTAL SALE TAX</div>
           <div class="stat-val" id="dashSaleTax">₹0.00</div>
         </div>
         <div class="stat-card teal">
-          <div style="font-size: 12px; color: #0f766e; font-weight: bold;">TOTAL PURCHASE ITC</div>
+          <div style="font-size: 11px; color: #0f766e; font-weight: bold;">TOTAL PURCHASE ITC</div>
           <div class="stat-val" id="dashItcTax">₹0.00</div>
         </div>
         <div class="stat-card red">
-          <div style="font-size: 12px; color: #b91c1c; font-weight: bold;">SARKAR KO JAMA KARNA HAI</div>
+          <div style="font-size: 11px; color: #b91c1c; font-weight: bold;">SARKAR KO JAMA KARNA HAI</div>
           <div class="stat-val" id="dashNetPayable" style="color: #b91c1c;">₹0.00</div>
         </div>
       </div>
-      <h4 style="margin-top: 20px;">Recent Sales History</h4>
+      <h4 style="margin-top: 15px;">Recent Sales History</h4>
       <table>
         <thead><tr><th>Inv #</th><th>Date</th><th>Customer</th><th>Item</th><th>Taxable</th><th>GST</th><th>Total</th></tr></thead>
         <tbody id="saleTableBody"></tbody>
@@ -224,27 +238,29 @@
     </div>
   </div>
 
+  <!-- TAB 4: BACKUP -->
   <div id="tab-cloud" class="tab-content" style="display:none;">
     <div class="card">
       <div class="card-title"><span>Backup & Security</span></div>
       <div class="grid-2">
-        <div style="border: 1px solid var(--border); padding: 15px; border-radius: 8px;">
+        <div style="border: 1px solid var(--border); padding: 12px; border-radius: 6px;">
           <h4>💾 Backup & Restore</h4>
-          <p style="font-size: 12px; color: var(--text-muted); margin: 8px 0;">Pura hisab download karein ya naye phone me upload karein.</p>
-          <button class="btn btn-primary" style="width: 100%;" onclick="downloadBackup()">📥 Backup Download Karein</button>
-          <input type="file" id="restoreFile" accept=".json" onchange="restoreBackup(event)" style="margin-top: 10px; font-size: 12px;">
+          <p style="font-size: 11px; color: var(--text-muted); margin: 6px 0;">Pura hisab download karein ya naye phone me upload karein.</p>
+          <button type="button" class="btn btn-primary" style="width: 100%;" onclick="downloadBackup()">📥 Backup Download Karein</button>
+          <input type="file" id="restoreFile" accept=".json" onchange="restoreBackup(event)" style="margin-top: 8px; font-size: 11px;">
         </div>
-        <div style="border: 1px solid var(--border); padding: 15px; border-radius: 8px;">
+        <div style="border: 1px solid var(--border); padding: 12px; border-radius: 6px;">
           <h4>🔑 Password Badalna</h4>
-          <div class="form-group" style="margin: 6px 0;"><label>Naya User ID</label><input type="text" id="newUserId"></div>
-          <div class="form-group" style="margin: 6px 0;"><label>Naya Password</label><input type="password" id="newPassword"></div>
-          <button class="btn btn-success" style="width: 100%; margin-top: 6px;" onclick="updateCredentials()">Save</button>
+          <div class="form-group" style="margin: 5px 0;"><label>Naya User ID</label><input type="text" id="newUserId"></div>
+          <div class="form-group" style="margin: 5px 0;"><label>Naya Password</label><input type="password" id="newPassword"></div>
+          <button type="button" class="btn btn-success" style="width: 100%; margin-top: 6px;" onclick="updateCredentials()">Save</button>
         </div>
       </div>
     </div>
   </div>
 </div>
 
+<!-- PRINTABLE INVOICE -->
 <div id="invoicePrintView">
   <div class="invoice-box">
     <div class="inv-header">
@@ -286,66 +302,77 @@
         <div class="inv-calc-row inv-grand"><span>Total:</span> <span id="pGrandTotal"></span></div>
       </div>
     </div>
-    <div style="font-size: 11px; margin-top: 8px;"><strong>In Words:</strong> <span id="pAmountInWords"></span></div>
+    <div style="font-size: 11px; margin-top: 6px;"><strong>In Words:</strong> <span id="pAmountInWords"></span></div>
     <div class="inv-footer">
       <div>1. Goods once sold will not be taken back.<br>2. Jurisdiction: Gonda.</div>
       <div style="text-align: center;"><br><strong>For BARAHI ENTERPRISES</strong><br>Authorised Signatory</div>
     </div>
-    <div style="margin-top: 20px; text-align: center;" class="no-print">
-      <button class="btn btn-primary" onclick="window.print()">🖨️ Print / Save PDF</button>
-      <button class="btn btn-outline" onclick="closeInvoice()">Band Karein</button>
+    <div style="margin-top: 15px; text-align: center;" class="no-print">
+      <button type="button" class="btn btn-primary" onclick="window.print()">🖨️ Print / Save PDF</button>
+      <button type="button" class="btn btn-outline" onclick="closeInvoice()">Band Karein</button>
     </div>
   </div>
 </div>
 
 <script>
-  const defaultUser = "admin";
-  const defaultPass = "1234";
   function checkLogin() {
-    let u = document.getElementById('loginUser').value.trim();
-    let p = document.getElementById('loginPass').value.trim();
-    if (u === (localStorage.getItem('be_user') || defaultUser) && p === (localStorage.getItem('be_pass') || defaultPass)) {
-      sessionStorage.setItem('be_logged_in', 'true');
+    var u = (document.getElementById('loginUser').value || '').trim();
+    var p = (document.getElementById('loginPass').value || '').trim();
+    var savedU = localStorage.getItem('be_user') || 'admin';
+    var savedP = localStorage.getItem('be_pass') || '1234';
+
+    if (u === savedU && p === savedP) {
       document.getElementById('authOverlay').style.display = 'none';
-    } else alert("Galat ID ya Password!");
+      document.getElementById('mainContainer').style.display = 'block';
+    } else {
+      alert("Galat User ID ya Password! Default: admin / 1234");
+    }
   }
-  function logout() { sessionStorage.removeItem('be_logged_in'); location.reload(); }
-  if (sessionStorage.getItem('be_logged_in') === 'true') document.getElementById('authOverlay').style.display = 'none';
+
+  function logout() {
+    document.getElementById('authOverlay').style.display = 'flex';
+    document.getElementById('mainContainer').style.display = 'none';
+  }
+
   function updateCredentials() {
-    let nu = document.getElementById('newUserId').value.trim();
-    let np = document.getElementById('newPassword').value.trim();
-    if(nu && np) { localStorage.setItem('be_user', nu); localStorage.setItem('be_pass', np); alert("Password Saved!"); }
+    var nu = document.getElementById('newUserId').value.trim();
+    var np = document.getElementById('newPassword').value.trim();
+    if(nu && np) {
+      localStorage.setItem('be_user', nu);
+      localStorage.setItem('be_pass', np);
+      alert("Naya ID aur Password save ho gaya!");
+    } else {
+      alert("Dono fields bharein!");
+    }
   }
-  let salesData = JSON.parse(localStorage.getItem('be_sales')) || [];
-  let purchasesData = JSON.parse(localStorage.getItem('be_purchases')) || [];
-  let currentInvNumber = salesData.length + 101;
+
+  var salesData = JSON.parse(localStorage.getItem('be_sales')) || [];
+  var purchasesData = JSON.parse(localStorage.getItem('be_purchases')) || [];
+  var currentInvNumber = salesData.length + 101;
   document.getElementById('dispInvNo').innerText = "BE-2026-" + currentInvNumber;
   document.getElementById('purDate').valueAsDate = new Date();
+
   function switchTab(id) {
-    document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
-    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(function(el){ el.style.display = 'none'; });
+    document.querySelectorAll('.tab-btn').forEach(function(el){ el.classList.remove('active'); });
     document.getElementById('tab-' + id).style.display = 'block';
     event.currentTarget.classList.add('active');
     updateDashboard();
   }
+
   function calculateLive() {
-    let finalAmt = parseFloat(document.getElementById('itemFinalAmount').value) || 0;
-    let rate = parseFloat(document.getElementById('itemGstRate').value);
-    let taxable = finalAmt / (1 + (rate / 100));
-    let tax = finalAmt - taxable;
+    var finalAmt = parseFloat(document.getElementById('itemFinalAmount').value) || 0;
+    var rate = parseFloat(document.getElementById('itemGstRate').value);
+    var taxable = finalAmt / (1 + (rate / 100));
+    var tax = finalAmt - taxable;
     document.getElementById('calcTaxable').value = "₹" + taxable.toFixed(2);
     document.getElementById('liveCgst').innerText = "₹" + (tax/2).toFixed(2);
     document.getElementById('liveSgst').innerText = "₹" + (tax/2).toFixed(2);
     document.getElementById('liveGrand').innerText = "₹" + finalAmt.toFixed(2);
   }
+
   function generateAndPrintInvoice() {
-    let custName = document.getElementById('custName').value || "Walk-in Customer";
-    let custPhone = document.getElementById('custPhone').value || "-";
-    let custAddr = document.getElementById('custAddr').value || "-";
-    let itemName = document.getElementById('itemName').value || "Battery";
-    let hsn = document.getElementById('itemHsn').value || "85072000";
-    let qty = parseInt(document.getElementById('itemQty').value) || 1;
-    let finalAmt = parseFloat(document.getElementById('itemFinalAmount').value) || 0;
-    let rate = parseFloat(document.getElementById('itemGstRate').value);
-    if (finalAmt <= 0) return alert("Amount dalein!");
-    let ta
+    var custName = document.getElementById('custName').value || "Walk-in Customer";
+    var custPhone = document.getElementById('custPhone').value || "-";
+    var custAddr = document.getElementById('custAddr').value || "-";
+    var 
